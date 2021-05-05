@@ -1,0 +1,181 @@
+
+
+/* Breadcrups CSS */
+
+.arrow-steps .step {
+	font-size: 14px;
+	text-align: center;
+	color: #666;
+	cursor: pointer;
+	margin: 0 3px;
+	padding: 10px 10px 7px 30px;
+    min-width:130px;
+    max-width:180px;
+	float: left;
+	position: relative;
+	background-color: #d9e3f7;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+  transition: background-color 0.2s ease;
+}
+
+.arrow-steps .step:after,
+.arrow-steps .step:before {
+	content: " ";
+	position: absolute;
+	top: 0;
+	right: -17px;
+	width: 0;
+	height: 0;
+	border-top: 19px solid transparent;
+	border-bottom: 17px solid transparent;
+	border-left: 17px solid #d9e3f7;	
+	z-index: 2;
+  transition: border-color 0.2s ease;
+}
+
+.arrow-steps .step:before {
+	right: auto;
+	left: 0;
+	border-left: 17px solid #fff;	
+	z-index: 0;
+}
+
+.arrow-steps .step:first-child:before {
+	border: none;
+}
+
+.arrow-steps .step:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.arrow-steps .step span {
+	position: relative;
+}
+
+.arrow-steps .step span:before {
+	opacity: 0;
+	content: "?";
+	position: absolute;
+	top: -2px;
+	left: -20px;
+}
+
+.arrow-steps .step.done span:before {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s ease 0.5s;
+	-moz-transition: opacity 0.3s ease 0.5s;
+	-ms-transition: opacity 0.3s ease 0.5s;
+	transition: opacity 0.3s ease 0.5s;
+}
+
+.arrow-steps .step.current {
+	color: #fff;
+	background-color: #23468c;
+}
+
+.arrow-steps .step.current:after {
+	border-left: 17px solid #23468c;	
+}
+
+
+
+
+
+.track-progress {
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  background:rgba(255,255,255,0.3);
+  border-radius: 10px;
+  -moz-box-shadow: 0 4px 6px -5px black;
+  -webkit-box-shadow: 0 4px 6px -5px black;
+  box-shadow: 0 4px 6px -5px black;
+}
+.track-progress li {
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+  font: 14px/14px Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: #bbb;
+  border-bottom: 4px #bbb solid;
+  line-height: 3em;
+  width: 30%;
+  float: left;
+}
+.track-progress li:after {
+  content: "\00a0\00a0";
+  /*non-breaking space */
+}
+.track-progress li:before {
+  position: relative;
+  bottom: -2.5em;
+  float: left;
+  left: 50%;
+  line-height: 1em;
+}
+@media (max-width: 800px) {
+  .track-progress li {
+    font-size: 0.7em;
+  }
+}
+.track-progress li span {
+  padding-left: 0.75em;
+}
+@media (max-width: 640px) {
+  .track-progress li span {
+    display: none;
+  }
+}
+.track-progress li.done {
+  color: #bbb;
+  font-weight: bold;
+  border-bottom: 4px #FF6699 solid;
+}
+.track-progress li.done:before {
+  content: "";
+  background: #FF6699;
+  height: 1.2em;
+  width: 1.2em;
+  line-height: 1.2em;
+  border: none;
+  border-radius: 1.2em;
+}
+.track-progress li.todo:before {
+  content: "";
+  background: white;
+  border: 0.25em solid #bbb;
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 0.8em;
+}
+.track-progress em {
+  display: none;
+  font-weight: 700;
+  padding-left: 0.75em;
+}
+@media (max-width: 640px) {
+  .track-progress em {
+    display: inline;
+  }
+}
+
+p {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 75%;
+  margin-top: 25px;
+  font: 18px/28px 'Open Sans',sans-serif;
+  color: #eee;
+}
+p em {
+  display: block;
+  font-size: 23px;
+  font-weight: 700;
+  font-style: normal;
+  color: white;
+}

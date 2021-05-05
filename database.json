@@ -1,0 +1,6 @@
+{
+	"dbhost":"attendance-2.cluster-cvxfty5zotmt.ap-south-1.rds.amazonaws.com",
+	"dbusername":"staging",
+	"dbpassword":"staging@emis",
+	"dbname":"tnschools_working"
+}

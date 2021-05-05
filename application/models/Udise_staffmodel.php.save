@@ -1,0 +1,75 @@
+ <?php
+
+class Udise_staffmodel extends CI_Model
+{
+    
+    function __construct() {
+        parent::__construct();
+
+    }
+
+    // insert staff1 table data
+    function staffinsrt($record){
+      $this->db->insert('udise_staffinfo',$record);
+    }
+
+    // update Staff Details
+    function updatedatastaff($data,$school_udise)
+    {
+      $this->db->where('udise_code', $school_udise);      
+      return $this->db->update('udise_staffinfo', $data);         
+    }
+
+     // getting staff details
+    function get_staff1($school_udise){
+      $this->db->select('accntnt,lib_asst,lab_asst,udc_hedclrk,ldc,peon_mts,night_wtchmn,tchingstff_reg,tchingstff_cntrct,prtme_instctr');
+      $this->db->where('udise_code',$school_udise);
+      $query = $this->db->get('udise_staffinfo');
+      return $query->result();
+    }
+
+    // getting staff Registered Detail
+    function get_staff_details($school_udise){
+      $this->db->select('u_id,teacher_code,aadhar_no,teacher_name,gender,staff_dob,staff_join,social_category,teacher_type,appointment_nature,academic,professional,classes_taught,appointed_subject,subject1,subject2,brc,crc,diet,others,training_need,wrkngdysspntfr_ntassng,maths_sci_stdedut,eng_lang_stdedut,soc_stdedut,wrkng_presentschlsince,disability_type,trained_teaching_cwsn,trained_using_comp,mbl_nmbr,email_id');
+      $this->db->where('udise_code', $school_udise); 
+      $query =  $this->db->get('udise_staffreg');
+      return $query->result();
+    }
+
+    // Staff registration insert
+    function staffreg($data){
+      //$this->db->set('createdat', mdate('%Y-%m-%d %H:%i:%s', now()));
+      $this->db->insert('udise_staffreg',$data);
+    }
+
+   
+   
+    
+
+     // update Staff Registered data
+    function updatestaffregdata($data,$user_id)
+    {
+      // $this->db->where('udise_code', $school_udise);
+      $this->db->where('u_id',$user_id);
+      return $this->db->update('udise_staffreg', $data);         
+    }
+
+    // update Staff Registered data
+    function stafformupdate($data,$uniquie_id)
+    {
+      // $this->db->where('udise_code', $school_udise);
+      $this->db->where('u_id',$uniquie_id);
+      return $this->db->update('udise_staffreg', $data);         
+    }
+
+    // geeting the staff data
+    function get_staff_form_details($school_udise,$unique_id_staff){
+      $this->db->select('u_id,teacher_code,aadhar_no,teacher_name,gender,staff_dob,staff_join,social_category,teacher_type,appointment_nature,academic,professional,classes_taught,appointed_subject,subject1,subject2,brc,crc,diet,others,training_need,wrkngdysspntfr_ntassng,maths_sci_stdedut,eng_lang_stdedut,soc_stdedut,wrkng_presentschlsince,disability_type,trained_teaching_cwsn,trained_using_comp,mbl_nmbr,email_id,e_prnts_nme,e_med,e_doj_prpost,e_prsnt_doorno,e_prsnt_place,e_prsnt_distrct,e_blood_grp,e_picid,e_ug,e_pg');
+      $this->db->where('udise_code', $school_udise);
+      $this->db->where('u_id',$unique_id_staff);
+      $query =  $this->db->get('udise_staffreg');
+      return $query->result();
+    }
+   
+}
+?>
